@@ -1,5 +1,6 @@
 import streamlit as st
 from dataclasses import dataclass
+import random
 
 st.title("Oefen je maaltafels!")
 choose = "Kies de maaltafels die je wilt oefenen"
@@ -26,6 +27,9 @@ multiplication_tables = []
 for table in tables:
     for i in range(1, 11):
         multiplication_tables.append(MultiplicationTable(table, f"{table} x {i} =", int(table) * i))
+
+# Shuffle the list of multiplication tables
+random.shuffle(multiplication_tables)
 
 # Initialize session state variables
 if 'current_question' not in st.session_state:
